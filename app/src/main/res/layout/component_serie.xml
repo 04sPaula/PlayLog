@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="120dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#1C1C1E"
+    tools:viewBindingIgnore="true"
+    android:paddingBottom="8dp"
+    android:layout_marginRight="8dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:cardElevation="0dp"
+        app:cardBackgroundColor="@android:color/transparent"  app:shapeAppearanceOverlay="@style/ShapeAppearance.App.AllCornersRounded">
+
+        <ImageView
+            android:id="@+id/media_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@android:color/darker_gray"  app:srcCompat="@drawable/placeholder_image"
+            android:contentDescription="Capa da série" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/media_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:maxLines="1"
+            android:textStyle="bold"
+            tools:text="Título" />
+
+        <TextView
+            android:id="@+id/media_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp"
+            tools:text="Descrição de até 3 linhas da série" />
+
+    </LinearLayout>
+
+</LinearLayout>

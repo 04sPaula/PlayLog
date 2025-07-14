@@ -6,7 +6,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -64,10 +64,7 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ToWatchActivity::class.java)
             startActivity(intent)
         }
-        btnSearch.setOnClickListener {
-            val intent = Intent(this, SearchActivity::class.java)
-            startActivity(intent)
-        }
+
         lastWatchedCard.setOnClickListener {
             val intent = Intent(this, DetailsActivity::class.java)
             startActivity(intent)

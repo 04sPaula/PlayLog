@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class SeriesSearchAdapter(val series: List<Serie>) :
+class SeriesSearchAdapter(val series: List<SeriesEntity>) :
     RecyclerView.Adapter<SeriesSearchAdapter.SerieViewHolder>() {
 
         class SerieViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,7 +22,7 @@ class SeriesSearchAdapter(val series: List<Serie>) :
 
         override fun onBindViewHolder(holder: SerieViewHolder, position: Int) {
             val serie = series[position]
-            holder.titulo.text = serie.titulo
+            holder.titulo.text = serie.nome
             holder.descricao.text = serie.descricao
         }
 

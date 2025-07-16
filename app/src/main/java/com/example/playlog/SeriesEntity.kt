@@ -5,10 +5,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "series")
 data class SeriesEntity(
-    @PrimaryKey val id: Int, // O ID do TMDb, para nunca ter duplicatas
+    @PrimaryKey val id: Int,
     val nome: String,
-    val descricao: String, // Usando String, que no Room vira TEXT (sem limite prático)
-    val caminhoPoster: String?, // O "poster_path" da API
+    val descricao: String,
+    val caminhoPoster: String?,
     val anoLancamento: Int,
-    val generos: List<String> // O Room pode converter listas de tipos simples
+    val generos: List<String>
 )

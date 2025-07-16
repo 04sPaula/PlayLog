@@ -2,6 +2,7 @@ package com.example.playlog
 
 import android.content.Intent
 import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -14,6 +15,11 @@ abstract class BaseActivity : AppCompatActivity() {
         val btnHome = findViewById<ImageButton>(R.id.nav_home)
         val btnSearch = findViewById<ImageButton>(R.id.nav_search)
         val btnSettings = findViewById<ImageButton>(R.id.nav_settings)
+        val btnBackWard = findViewById<ImageView>(R.id.ic_backward)
+
+        btnBackWard?.setOnClickListener {
+            finish()
+        }
 
         btnHome?.setOnClickListener {
             if (this !is MainActivity) {

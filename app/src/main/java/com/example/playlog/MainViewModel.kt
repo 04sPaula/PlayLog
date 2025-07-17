@@ -10,11 +10,13 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private val seriesDao: SeriesDao
     val allSeries: LiveData<List<SeriesEntity>>
+    val lastWatchedSeries: LiveData<SeriesEntity?>
 
     init {
         val database = AppDatabase.getDatabase(application)
         seriesDao = database.seriesDao()
         allSeries = seriesDao.getAllSeries()
+        lastWatchedSeries = seriesDao.getLastWatched()
     }
 
     fun insertTestData() {

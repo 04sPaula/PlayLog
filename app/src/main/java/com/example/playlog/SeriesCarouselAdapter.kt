@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import android.content.Intent
 
 class SeriesCarouselAdapter(private var series: List<SeriesEntity>) :
     RecyclerView.Adapter<SeriesCarouselAdapter.SerieViewHolder>() {
@@ -28,6 +29,14 @@ class SeriesCarouselAdapter(private var series: List<SeriesEntity>) :
         holder.titulo.text = serie.nome
         holder.descricao.text = serie.descricao
         Glide.with(holder.itemView.context).load(serie.caminhoPoster).into(holder.poster)
+
+        holder.itemView.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, DetailsActivity::class.java).apply {
+                putExtra(DetailsActivity.EXTRA_SERIES_ID, serie.id)
+            }
+            context.startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {

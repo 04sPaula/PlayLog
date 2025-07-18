@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="#1C1C1E">
 
@@ -39,11 +40,21 @@
     </LinearLayout>
 
     <include
+        android:id="@+id/empty_state_view"
         layout="@layout/empty_state"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp"
+        android:visibility="visible"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_to_watch"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone"
+        tools:listitem="@layout/component_serie"/>
 
     <include
         android:id="@+id/bottomNavBar"

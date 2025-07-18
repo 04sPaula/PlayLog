@@ -3,9 +3,11 @@ package com.example.playlog
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.google.android.material.button.MaterialButton
 
 class DetailsActivity : BaseActivity() {
 
@@ -18,6 +20,7 @@ class DetailsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
+        val buttonUpdate = findViewById<MaterialButton>(R.id.button_update)
 
         val seriesId = intent.getIntExtra(EXTRA_SERIES_ID, -1)
 
@@ -44,5 +47,10 @@ class DetailsActivity : BaseActivity() {
                     .into(mediaImage)
             }
         })
+
+        buttonUpdate.setOnClickListener {
+            detailsViewModel.markAsWatched()
+            Toast.makeText(this, "Progresso atualizado!", Toast.LENGTH_SHORT).show()
+        }
     }
 }

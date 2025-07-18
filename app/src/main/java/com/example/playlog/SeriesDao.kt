@@ -24,4 +24,7 @@ interface SeriesDao {
 
     @Update
     suspend fun updateSeries(series: SeriesEntity)
+
+    @Query("SELECT * FROM series WHERE nome LIKE '%' || :query || '%'")
+    fun searchSeries(query: String): LiveData<List<SeriesEntity>>
 }

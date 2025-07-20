@@ -19,4 +19,11 @@ interface TmdbApiService {
         @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
         @Query("language") language: String = "pt-BR"
     ): SeasonDetails
+
+    @GET("tv/{tv_id}")
+    suspend fun getSeriesDetails(
+        @Path("tv_id") seriesId: Int,
+        @Query("api_key") apiKey: String = BuildConfig.TMDB_API_KEY,
+        @Query("language") language: String = "pt-BR"
+    ): TvShowDetails
 }

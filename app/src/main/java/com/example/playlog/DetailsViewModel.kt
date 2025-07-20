@@ -8,13 +8,13 @@ import kotlinx.coroutines.launch
 
 class DetailsViewModel(application: Application, seriesId: Int) : AndroidViewModel(application) {
 
-    private val seriesDao: SeriesDao
-    val seriesDetails: LiveData<SeriesEntity>
+    private val repository: SeriesRepository
+    val seriesDao = AppDatabase.getDatabase(application).seriesDao()
+    val seriesDetails: LiveData<SeriesEntity?>
 
     init {
-        val database = AppDatabase.getDatabase(application)
-        seriesDao = database.seriesDao()
-        seriesDetails = seriesDao.getSeriesById(seriesId)
+        repository = SeriesRepository(seriesDao)
+        seriesDetails = repository.getSeriesDetails(seriesId)
     }
 
     fun markAsWatched() {

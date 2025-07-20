@@ -23,7 +23,6 @@ class MainActivity : BaseActivity() {
         val recyclerViewCarrossel = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recycler_view_carousel)
         val btnAllWatched = findViewById<ImageView>(R.id.ic_all_watched)
         val btnToWatch = findViewById<ImageView>(R.id.ic_to_watch)
-        val lastWatchedCard = findViewById<ImageView>(R.id.media_image)
         val lastWatchedView = findViewById<View>(R.id.component_last_watched)
         val lastWatchedImage = lastWatchedView.findViewById<ImageView>(R.id.media_image)
         val lastWatchedTitle = lastWatchedView.findViewById<TextView>(R.id.media_title)
@@ -68,9 +67,7 @@ class MainActivity : BaseActivity() {
             val intent = Intent(this, ToWatchActivity::class.java)
             startActivity(intent)
         }
-        lastWatchedCard.setOnClickListener {
-            val intent = Intent(this, DetailsActivity::class.java)
-            startActivity(intent)
-        }
+
+        mainViewModel.insertTestData()
     }
 }

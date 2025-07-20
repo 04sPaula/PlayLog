@@ -37,14 +37,17 @@ class DetailsActivity : BaseActivity() {
         val mediaDescription = findViewById<TextView>(R.id.media_description)
 
         detailsViewModel.seriesDetails.observe(this, Observer { serie ->
-            serie?.let {
-                mediaTitle.text = it.nome
-                mediaDescription.text = it.descricao
+            if (serie != null) {
+                mediaTitle.text = serie.nome
+                mediaDescription.text = serie.descricao
 
                 Glide.with(this)
-                    .load(it.caminhoPoster)
+                    .load(serie.caminhoPoster)
                     .placeholder(R.drawable.placeholder_image)
                     .into(mediaImage)
+            } else {
+                Toast.makeText(this, "Não foi possível carregar os detalhes.", Toast.LENGTH_SHORT).show()
+                finish()
             }
         })
 

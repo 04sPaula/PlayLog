@@ -1,11 +1,15 @@
 package com.example.playlog
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
-data class TvShow(
+@JsonClass(generateAdapter = true)
+data class TvShowDetails(
     val id: Int,
     val name: String,
-    val overview: String,
+
+    @Json(name = "overview")
+    val overview: String?,
 
     @Json(name = "poster_path")
     val posterPath: String?,
@@ -13,6 +17,5 @@ data class TvShow(
     @Json(name = "first_air_date")
     val firstAirDate: String?,
 
-    @Json(name = "genre_ids")
-    val genreIds: List<Int>
+    val genres: List<Genre>?
     )

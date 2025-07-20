@@ -14,7 +14,7 @@ interface SeriesDao {
     fun getAllSeries(): LiveData<List<SeriesEntity>>
 
     @Query("SELECT * FROM series WHERE id = :seriesId")
-    fun getSeriesById(seriesId: Int): LiveData<SeriesEntity>
+    fun getSeriesById(seriesId: Int): LiveData<SeriesEntity?>
 
     @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertAll(series: List<SeriesEntity>)
@@ -27,4 +27,7 @@ interface SeriesDao {
 
     @Query("SELECT * FROM series WHERE nome LIKE '%' || :query || '%'")
     fun searchSeries(query: String): LiveData<List<SeriesEntity>>
+
+    @Query("SELECT * FROM series WHERE id = :seriesId")
+    fun getSeriesByIdSync(seriesId: Int): SeriesEntity?
 }

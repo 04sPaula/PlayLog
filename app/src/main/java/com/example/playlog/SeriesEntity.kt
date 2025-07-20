@@ -2,7 +2,9 @@ package com.example.playlog
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 
+@JsonClass(generateAdapter = true)
 @Entity(tableName = "series")
 data class SeriesEntity(
     @PrimaryKey val id: Int,

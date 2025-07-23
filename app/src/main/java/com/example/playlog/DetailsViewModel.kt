@@ -9,20 +9,43 @@ import kotlinx.coroutines.launch
 class DetailsViewModel(application: Application, seriesId: Int) : AndroidViewModel(application) {
 
     private val repository: SeriesRepository
-    val seriesDao = AppDatabase.getDatabase(application).seriesDao()
     val seriesDetails: LiveData<SeriesEntity?>
 
     init {
+        val seriesDao = AppDatabase.getDatabase(application).seriesDao()
         repository = SeriesRepository(seriesDao)
         seriesDetails = repository.getSeriesDetails(seriesId)
     }
 
-    fun markAsWatched() {
+    fun updateEpisodeProgress(season: Int, episode: Int) {
         viewModelScope.launch {
-            val series = seriesDetails.value
-            series?.let {
+            val currentSeries = seriesDetails.value
+            currentSeries?.let {
+                val updatedSeries = it.copy(
+                    temporadaAtual = season,
+                    episodioAtual = episode,
+                    lastWatchedTimestamp = System.currentTimeMillis()
+                )
+                repository.updateSeries(updatedSeries)
+            }
+        }
+    }
+
+    fun startWatching() {
+        viewModelScope.launch {
+            val currentSeries = seriesDetails.value
+            currentSeries?.let {
                 val updatedSeries = it.copy(lastWatchedTimestamp = System.currentTimeMillis())
-                seriesDao.updateSeries(updatedSeries)
+                repository.updateSeries(updatedSeries)
+            }
+        }
+    }
+
+    fun deleteSeries() {
+        viewModelScope.launch {
+            val currentSeries = seriesDetails.value
+            currentSeries?.let {
+                repository.deleteSeries(it)
             }
         }
     }

@@ -22,15 +22,26 @@ class MainActivity : BaseActivity() {
 
         val recyclerViewCarrossel = findViewById<androidx.recyclerview.widget.RecyclerView>(R.id.recycler_view_carousel)
         val btnAllWatched = findViewById<ImageView>(R.id.ic_all_watched)
-        val btnToWatch = findViewById<ImageView>(R.id.ic_to_watch)
         val lastWatchedView = findViewById<View>(R.id.component_last_watched)
         val lastWatchedImage = lastWatchedView.findViewById<ImageView>(R.id.media_image)
         val lastWatchedTitle = lastWatchedView.findViewById<TextView>(R.id.media_title)
+        val lastWatchedDescription = lastWatchedView.findViewById<TextView>(R.id.media_description)
+        val lastWatchedEpisodeInfo = lastWatchedView.findViewById<TextView>(R.id.media_episode_info)
 
         mainViewModel.lastWatchedSeries.observe(this, Observer { series ->
             if (series != null) {
                 lastWatchedView.visibility = View.VISIBLE
                 lastWatchedTitle.text = series.nome
+                lastWatchedDescription.text = series.descricao
+
+                if (series.temporadaAtual != null && series.episodioAtual != null) {
+                    lastWatchedEpisodeInfo.text = "T${series.temporadaAtual} EP${series.episodioAtual}"
+                    lastWatchedEpisodeInfo.visibility = View.VISIBLE
+                } else {
+                    lastWatchedEpisodeInfo.visibility = View.GONE
+                }
+
+
                 Glide.with(this)
                     .load(series.caminhoPoster)
                     .placeholder(R.drawable.placeholder_image)
@@ -57,17 +68,9 @@ class MainActivity : BaseActivity() {
             }
         })
 
-        mainViewModel.insertTestData()
-
         btnAllWatched.setOnClickListener {
             val intent = Intent(this, AllWatchedActivity::class.java)
             startActivity(intent)
         }
-        btnToWatch.setOnClickListener {
-            val intent = Intent(this, ToWatchActivity::class.java)
-            startActivity(intent)
-        }
-
-        mainViewModel.insertTestData()
     }
 }

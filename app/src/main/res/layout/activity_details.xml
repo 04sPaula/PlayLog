@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginHorizontal="16dp"
-        android:paddingVertical="16dp">
+        android:paddingVertical="16dp"
+        android:gravity="start">
 
         <TextView
             android:id="@+id/media_title"
@@ -93,7 +94,7 @@
             android:textSize="13sp"
             android:backgroundTint="#383838"
             android:textAllCaps="false"
-            android:text="Iniciar tempo assistindo"
+            android:text="Atualizar episódio atual"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_update"
             app:iconGravity="textStart"
@@ -108,7 +109,7 @@
             android:textAllCaps="false"
             app:iconSize="18dp"
             android:textSize="13sp"
-            android:text="Iniciar tempo assistindo"
+            android:text="Descartar progresso"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_delete"
             app:iconGravity="textStart"

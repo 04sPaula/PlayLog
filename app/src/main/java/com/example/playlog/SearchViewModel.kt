@@ -27,7 +27,7 @@ class SearchViewModel(application: Application) : AndroidViewModel(application) 
 
         viewModelScope.launch {
             val results = repository.searchSeriesOnApi(query)
-            _searchResults.postValue(results) // postValue é seguro para usar em coroutines
+            _searchResults.postValue(results)
         }
     }
 }

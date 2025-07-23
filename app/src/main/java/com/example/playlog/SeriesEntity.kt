@@ -13,5 +13,7 @@ data class SeriesEntity(
     val caminhoPoster: String?,
     val anoLancamento: Int,
     val generos: List<String>,
+    val temporadaAtual: Int? = null,
+    val episodioAtual: Int? = null,
     val lastWatchedTimestamp: Long? = null
 )

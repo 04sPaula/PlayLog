@@ -2,6 +2,7 @@ package com.example.playlog
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -22,12 +23,15 @@ interface SeriesDao {
     @Query("SELECT * FROM series WHERE lastWatchedTimestamp IS NOT NULL ORDER BY lastWatchedTimestamp DESC LIMIT 1")
     fun getLastWatched(): LiveData<SeriesEntity?>
 
-    @Update
-    suspend fun updateSeries(series: SeriesEntity)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertSeries(series: SeriesEntity)
 
     @Query("SELECT * FROM series WHERE nome LIKE '%' || :query || '%'")
     fun searchSeries(query: String): LiveData<List<SeriesEntity>>
 
     @Query("SELECT * FROM series WHERE id = :seriesId")
     fun getSeriesByIdSync(seriesId: Int): SeriesEntity?
+
+    @Delete
+    suspend fun deleteSeries(series: SeriesEntity)
 }

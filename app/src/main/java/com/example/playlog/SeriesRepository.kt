@@ -19,6 +19,10 @@ class SeriesRepository(private val seriesDao: SeriesDao) {
         }
     }
 
+    fun getAllSeries(): LiveData<List<SeriesEntity>> {
+        return seriesDao.getAllSeries()
+    }
+
     fun getSeriesDetails(seriesId: Int): LiveData<SeriesEntity?> {
         return liveData(Dispatchers.IO) {
             var series = seriesDao.getSeriesByIdSync(seriesId)
@@ -26,18 +30,23 @@ class SeriesRepository(private val seriesDao: SeriesDao) {
             if (series != null) {
                 emit(series)
             } else {
-                // 3. Se NÃO foi encontrada, busca na API.
                 try {
                     val seriesFromApi = tmdbService.getSeriesDetails(seriesId)
                     val seriesEntity = seriesFromApi.toSeriesEntity()
-                    // Emite o resultado da API
                     emit(seriesEntity)
                 } catch (e: Exception) {
                     Log.e("DetailsRepository", "Erro ao buscar ou converter detalhes da API", e)
-                    // Se a API falhar, emite nulo
                     emit(null)
                 }
             }
         }
+    }
+
+    suspend fun updateSeries(series: SeriesEntity) {
+        seriesDao.upsertSeries(series)
+    }
+
+    suspend fun deleteSeries(series: SeriesEntity) {
+        seriesDao.deleteSeries(series)
     }
 }

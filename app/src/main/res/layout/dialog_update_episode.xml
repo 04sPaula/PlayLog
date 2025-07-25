@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#1C1C1E"
     android:orientation="vertical"
     android:padding="24dp">
@@ -15,38 +16,78 @@
         android:textColor="#fafafa"
         android:layout_marginBottom="16dp"/>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Temporada"
+        android:textSize="16sp"
+        android:textColor="#fafafa"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="0dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_season"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColorHint="#BDBDBD"
+        android:hint="Temporada"
+        android:textColorHint="#bdbdbd"
+        android:backgroundTint="#4B4B4B"
+        android:textColor="#FFFFFF"
+        android:inputType="number"
+        android:background="#fafafa"
+        android:padding="12dp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Episódio"
+        android:textSize="16sp"
         android:textColor="#fafafa"
-        android:hint="Temporada">
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="12dp"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_season"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#4B4B4B"
-            android:inputType="number" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
+    <EditText
+        android:id="@+id/edit_text_episode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#fafafa"
-        android:textColorHint="#BDBDBD"
-        android:layout_marginTop="8dp"
-        android:hint="Episódio">
+        android:hint="Episódio"
+        android:textColorHint="#bdbdbd"
+        android:backgroundTint="#4B4B4B"
+        android:textColor="#FFFFFF"
+        android:inputType="number"
+        android:background="#fafafa"
+        android:padding="12dp"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_episode"
-            android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/dialog_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="24dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/button_cancel"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:backgroundTint="#4B4B4B"
-            android:inputType="number" />
+            android:layout_weight="1"
+            android:text="Cancelar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
-
+        <Button
+            android:id="@+id/button_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Atualizar"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@android:color/transparent" />
+    </LinearLayout>
 
 </LinearLayout>

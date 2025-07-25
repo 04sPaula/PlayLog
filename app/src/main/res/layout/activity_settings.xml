@@ -16,23 +16,6 @@
         android:alpha="0.8"
         app:srcCompat="@drawable/playlog" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_marginHorizontal="16dp"
-        app:cardElevation="0dp"
-        app:cardBackgroundColor="@android:color/transparent"  app:shapeAppearanceOverlay="@style/ShapeAppearance.App.AllCornersRounded">
-
-        <ImageView
-            android:id="@+id/media_image"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:background="@android:color/darker_gray"  app:srcCompat="@drawable/placeholder_image"
-            android:contentDescription="Capa da série" />
-
-    </com.google.android.material.card.MaterialCardView>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,33 +25,21 @@
         android:gravity="start">
 
         <TextView
-            android:id="@+id/media_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="Sex and the City" />
+            android:text="Configurações" />
 
         <TextView
-            android:id="@+id/media_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:ellipsize="end"
-            android:textColor="#E0E0E0"
-            android:textSize="14sp"
-            android:text="A colunista Carrie Bradshaw e as amigas Samantha, Charlotte e Miranda exploram os altos e baixos do mundo dos solteiros em Nova York. Aos trinta e poucos anos de idade, elas são bonitas, bem-sucedidas e,  principalmente, unidas por uma grande amizade." />
-
-        <TextView
-            android:id="@+id/media_episode_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="16dp"
+            android:layout_marginBottom="16dp"
             android:textColor="@android:color/white"
             android:textSize="14sp"
             android:textStyle="bold"
-            android:text="T3 EP17 : O que vai, volta" />
+            android:text="Muito cuidado ao entrar nessa tela!" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/button_update"
@@ -78,10 +49,12 @@
             app:iconSize="18dp"
             android:textSize="13sp"
             android:backgroundTint="#383838"
+            android:textColor="#FF6C6C"
             android:textAllCaps="false"
             android:text="Atualizar episódio atual"
             app:cornerRadius="8dp"
-            app:icon="@drawable/ic_play_arrow"
+            app:icon="@drawable/ic_delete"
+            app:iconTint="#FF6C6C"
             app:iconGravity="textStart"
             app:iconPadding="8dp" />
 
@@ -91,12 +64,10 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:backgroundTint="#383838"
-            android:textAllCaps="false"
-            app:iconSize="18dp"
+            android:textAllCaps="true"
             android:textSize="13sp"
-            android:text="Descartar progresso"
+            android:text="Fazer backup"
             app:cornerRadius="8dp"
-            app:icon="@drawable/ic_delete"
             app:iconGravity="textStart"
             app:iconPadding="8dp" />
 

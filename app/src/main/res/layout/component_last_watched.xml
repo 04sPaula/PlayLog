@@ -6,8 +6,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="#1C1C1E"
-    tools:viewBindingIgnore="true"
-    android:paddingBottom="8dp">
+    tools:viewBindingIgnore="true">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"

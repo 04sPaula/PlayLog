@@ -34,4 +34,10 @@ interface SeriesDao {
 
     @Delete
     suspend fun deleteSeries(series: SeriesEntity)
+
+    @Query("DELETE FROM series")
+    suspend fun deleteAllSeries()
+
+    @Query("SELECT * FROM series")
+    suspend fun getAllSeriesSync(): List<SeriesEntity>
 }

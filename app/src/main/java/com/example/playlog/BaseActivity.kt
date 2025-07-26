@@ -21,6 +21,12 @@ abstract class BaseActivity : AppCompatActivity() {
             finish()
         }
 
+        btnSettings?.setOnClickListener {
+            if (this !is SettingsActivity) {
+                startActivity(Intent(this, SettingsActivity::class.java))
+            }
+        }
+
         btnHome?.setOnClickListener {
             if (this !is MainActivity) {
                 startActivity(Intent(this, MainActivity::class.java))

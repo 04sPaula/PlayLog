@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#fafafa"
-        android:text="Atenção!"
+        android:text="Restaurar backup"
         android:textAppearance="?attr/textAppearanceHeadline6" />
 
     <TextView
@@ -18,8 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textColor="#fafafa"
-        android:text="Esta ação é irreversível e irá apagar todos os dados de séries do aplicativo. Deseja continuar?
-\nDica: Faça um backup antes de clicar em confirmar!"
+        android:text="Certifique-se que esse arquivo de fato é um json provido pelo nosso app!"
         android:textAppearance="?attr/textAppearanceBody1" />
 
     <LinearLayout
@@ -30,7 +29,7 @@
         android:orientation="horizontal">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_cancel_delete"
+            android:id="@+id/button_cancel_restore"
             style="?attr/materialButtonOutlinedStyle"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -40,11 +39,12 @@
             android:layout_width="0dp"/>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_confirm_delete"
+            android:id="@+id/button_confirm_restore"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Confirmar"
-            android:backgroundTint="@android:color/holo_red_dark"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
             android:layout_width="0dp"/>
     </LinearLayout>
 

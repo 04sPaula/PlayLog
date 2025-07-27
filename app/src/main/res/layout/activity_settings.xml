@@ -42,7 +42,7 @@
             android:text="Muito cuidado ao entrar nessa tela!" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_update"
+            android:id="@+id/button_reset"
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -51,7 +51,7 @@
             android:backgroundTint="#383838"
             android:textColor="#FF6C6C"
             android:textAllCaps="false"
-            android:text="Atualizar episódio atual"
+            android:text="Deletar todo os dados"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_delete"
             app:iconTint="#FF6C6C"
@@ -59,7 +59,7 @@
             app:iconPadding="8dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_delete"
+            android:id="@+id/button_save"
             style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -67,6 +67,19 @@
             android:textAllCaps="true"
             android:textSize="13sp"
             android:text="Fazer backup"
+            app:cornerRadius="8dp"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_backup"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="#383838"
+            android:textAllCaps="false"
+            android:textSize="13sp"
+            android:text="Restaurar backup"
             app:cornerRadius="8dp"
             app:iconGravity="textStart"
             app:iconPadding="8dp" />

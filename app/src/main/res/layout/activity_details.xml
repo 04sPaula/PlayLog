@@ -11,9 +11,9 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:paddingVertical="8dp"
-        android:alpha="0.8"
+        android:layout_height="56dp"
+        android:paddingVertical="4dp"
+        android:alpha="1"
         app:srcCompat="@drawable/playlog" />
 
     <com.google.android.material.card.MaterialCardView
@@ -55,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:maxLines="10"
             android:ellipsize="end"
             android:textColor="#E0E0E0"
             android:textSize="14sp"
@@ -78,6 +79,7 @@
             app:iconSize="18dp"
             android:textSize="13sp"
             android:backgroundTint="#383838"
+            android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:text="Atualizar episódio atual"
             app:cornerRadius="8dp"
@@ -91,6 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:backgroundTint="#383838"
+            android:textColor="@android:color/white"
             android:textAllCaps="false"
             app:iconSize="18dp"
             android:textSize="13sp"

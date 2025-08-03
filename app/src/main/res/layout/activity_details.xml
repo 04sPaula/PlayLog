@@ -11,8 +11,8 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:paddingVertical="4dp"
+        android:layout_height="48dp"
+        android:paddingBottom="2dp"
         android:alpha="1"
         app:srcCompat="@drawable/playlog" />
 
@@ -79,6 +79,7 @@
             app:iconSize="18dp"
             android:textSize="13sp"
             android:backgroundTint="#383838"
+            app:iconTint="@color/white"
             android:textColor="@android:color/white"
             android:textAllCaps="false"
             android:text="Atualizar episódio atual"
@@ -97,6 +98,7 @@
             android:textAllCaps="false"
             app:iconSize="18dp"
             android:textSize="13sp"
+            app:iconTint="@color/white"
             android:text="Descartar progresso"
             app:cornerRadius="8dp"
             app:icon="@drawable/ic_delete"

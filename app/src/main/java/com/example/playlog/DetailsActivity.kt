@@ -57,6 +57,7 @@ class DetailsActivity : BaseActivity() {
                     mediaEpisodeInfo.visibility = android.view.View.VISIBLE
                 } else {
                     mediaEpisodeInfo.visibility = android.view.View.GONE
+                    buttonDelete.visibility = android.view.View.GONE
                 }
 
             } else {
@@ -78,27 +79,35 @@ class DetailsActivity : BaseActivity() {
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_update_episode, null)
         val seasonInput = dialogView.findViewById<EditText>(R.id.edit_text_season)
         val episodeInput = dialogView.findViewById<EditText>(R.id.edit_text_episode)
+        val cancelButton = dialogView.findViewById<android.widget.Button>(R.id.button_cancel)
+        val confirmButton = dialogView.findViewById<android.widget.Button>(R.id.button_confirm)
 
-        AlertDialog.Builder(this)
+        val alertDialog = AlertDialog.Builder(this)
             .setView(dialogView)
-            .setPositiveButton("Atualizar") { dialog, _ ->
-                val seasonStr = seasonInput.text.toString()
-                val episodeStr = episodeInput.text.toString()
-
-                if (seasonStr.isNotEmpty() && episodeStr.isNotEmpty()) {
-                    val season = seasonStr.toInt()
-                    val episode = episodeStr.toInt()
-                    detailsViewModel.updateEpisodeProgress(season, episode)
-                    Toast.makeText(this, "Progresso atualizado!", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Por favor, preencha ambos os campos.", Toast.LENGTH_SHORT).show()
-                }
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancelar", null)
             .create()
-            .show()
+
+        cancelButton.setOnClickListener {
+            alertDialog.dismiss()
+        }
+
+        confirmButton.setOnClickListener {
+            val seasonStr = seasonInput.text.toString()
+            val episodeStr = episodeInput.text.toString()
+
+            if (seasonStr.isNotEmpty() && episodeStr.isNotEmpty()) {
+                val season = seasonStr.toInt()
+                val episode = episodeStr.toInt()
+                detailsViewModel.updateEpisodeProgress(season, episode)
+                Toast.makeText(this, "Progresso atualizado!", Toast.LENGTH_SHORT).show()
+                alertDialog.dismiss()
+            } else {
+                Toast.makeText(this, "Por favor, preencha ambos os campos.", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        alertDialog.show()
     }
+
 
     private fun showDeleteConfirmationDialog() {
         AlertDialog.Builder(this)

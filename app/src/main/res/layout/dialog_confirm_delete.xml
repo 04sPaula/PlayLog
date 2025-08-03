@@ -43,6 +43,7 @@
             android:id="@+id/button_confirm_delete"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/white"
             android:text="Confirmar"
             android:backgroundTint="@android:color/holo_red_dark"
             android:layout_width="0dp"/>
